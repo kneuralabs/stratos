@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+(function(){var K="kn-auth-session",S="https://sso.kneuralabs.com/";var p=new URLSearchParams(location.search),t=p.get("kn-auth");if(t){try{sessionStorage.setItem(K,t);}catch(e){}p.delete("kn-auth");history.replaceState(null,"",location.pathname+(p.toString()?"?"+p:"")+location.hash);}if(!sessionStorage.getItem(K)){location.replace(S+"?redirect="+encodeURIComponent(location.href));}})();
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Stratos — Strategy Analyzer</title>
 <link id="favicon" rel="icon" type="image/png" href="https://github.com/kneuralabs/stratos/blob/main/LOGO.png?raw=true">
@@ -704,7 +707,7 @@ function openKeyModal(){
   st.textContent='';st.className='key-modal-status';
   if(getKey()){
     inp.placeholder='Key saved — paste new one to replace';
-    st.textContent='\u2713 Key is set';st.className='key-modal-status ok';
+    st.textContent='✓ Key is set';st.className='key-modal-status ok';
   }
   setTimeout(()=>inp.focus(),80);
 }
@@ -720,7 +723,7 @@ function saveKey(){
   _k=v;
   document.getElementById('keyModalInput').value='';
   updateDot();
-  st.textContent='\u2713 Saved!';st.className='key-modal-status ok';
+  st.textContent='✓ Saved!';st.className='key-modal-status ok';
   setTimeout(closeKeyModal,900);
 }
 function updateDot(){
